@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript vs Rust/WebAssembly — Blur de Imagem</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #1e1e1e;
+      color: #eee;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .painel {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .bloco {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    canvas {
+      border: 1px solid #555;
+      background: #000;
+      max-width: 420px;
+      height: auto;
+    }
+
+    .tempo-blur {
+      margin-top: 8px;
+      font-size: 1.05em;
+      font-weight: bold;
+      color: #9ad;
+    }
+
+    .controles {
+      margin-top: 30px;
+    }
+
+    button {
+      font-size: 1em;
+      padding: 10px 18px;
+      margin: 4px 8px;
+      cursor: pointer;
+    }
+
+    input[type="number"] {
+      width: 60px;
+      font-size: 1em;
+      padding: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>JavaScript vs Rust + WebAssembly</h1>
+  <p>Blur de imagem — comparação de desempenho</p>
+
+  <div class="painel">
+    <div class="bloco">
+      <h2>JavaScript</h2>
+      <canvas id="canvas-js" width="1000" height="700"></canvas>
+      <div class="tempo-blur" id="tempo-blur-js">Blur: —</div>
+    </div>
+
+    <div class="bloco">
+      <h2>Rust + WebAssembly</h2>
+      <canvas id="canvas-wasm" width="1000" height="700"></canvas>
+      <div class="tempo-blur" id="tempo-blur-wasm">Blur: —</div>
+    </div>
+  </div>
+
+  <div class="controles">
+    <label for="input-raio">Raio do blur: </label>
+    <input type="number" id="input-raio" value="25" min="1" max="50">
+    <button id="btn-blur-js">Aplicar Blur (JavaScript)</button>
+    <button id="btn-blur-wasm">Aplicar Blur (WebAssembly)</button>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+
+</html>

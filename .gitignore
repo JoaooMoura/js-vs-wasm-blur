@@ -1,0 +1,6 @@
+# Rust / wasm-pack
+wasm-renderer/target/
+wasm-renderer/pkg/
+
+# Node (se usar servidor local via npx)
+node_modules/
